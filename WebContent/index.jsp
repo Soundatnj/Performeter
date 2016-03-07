@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<form action="/Performeter/Login" method="post">
+	<form action="/Performeter/LoginController" method="post">
 		<input type="hidden" name="action" value="dologin"/>
 		Employee ID:<input type="text" name="employeeId" value="<%=request.getAttribute("employeeId")==null?"":request.getAttribute("employeeId") %>"/>
 		Password:<input type="text" name="employeePassword" value="<%=request.getAttribute("employeePassword")==null?"":request.getAttribute("employeePassword") %>"/>

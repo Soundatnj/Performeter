@@ -2,20 +2,20 @@ package performeter.beans;
 
 public class EmployeeLogin {
 	
-	private String employeeId;
+	private int employeeId;
 	private String employeePassword;
 	private String message;
 	
-	public EmployeeLogin(String employeeID,String employeePassword){
+	public EmployeeLogin(int employeeID,String employeePassword){
 		this.employeeId = employeeID;
 		this.employeePassword = employeePassword;
 	}
 
-	public String getEmployeeId() {
+	public int getEmployeeId() {
 		return employeeId;
 	}
 
-	public void setEmployeeId(String employeeId) {
+	public void setEmployeeId(int employeeId) {
 		this.employeeId = employeeId;
 	}
 
@@ -37,8 +37,12 @@ public class EmployeeLogin {
 	
 	public boolean validate(){
 		
-		if(employeeId==null || employeeId==""){
+		if(employeeId==0){
 			message = "Please enter Employee ID";
+			return false;
+		}
+		else if(employeeId==-999){
+			message= "Please enter a valid employee Id";
 			return false;
 		}
 		else if(employeePassword==null || employeePassword==""){

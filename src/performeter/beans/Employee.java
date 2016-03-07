@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Employee {
 	
-	private Integer empId;
+	private int empId;
 	private String empName;
 	private String empPhNo;
 	private Date empDOB;
@@ -13,14 +13,14 @@ public class Employee {
 	private String empObj;
 	private String empPlace;
 	private String empReview;
-	private Double empObSupRt;
-	private Double empOvSelRt;
-	private Double empAvRt;
+	private double empObSupRt;
+	private double empOvSelRt;
+	private double empAvRt;
 	
-	public Integer getEmpId() {
+	public int getEmpId() {
 		return empId;
 	}
-	public void setEmpId(Integer empId) {
+	public void setEmpId(int empId) {
 		this.empId = empId;
 	}
 	public String getEmpName() {
@@ -71,22 +71,22 @@ public class Employee {
 	public void setEmpReview(String empReview) {
 		this.empReview = empReview;
 	}
-	public Double getEmpObSupRt() {
+	public double getEmpObSupRt() {
 		return empObSupRt;
 	}
-	public void setEmpObSupRt(Double empObSupRt) {
+	public void setEmpObSupRt(double empObSupRt) {
 		this.empObSupRt = empObSupRt;
 	}
-	public Double getEmpOvSelRt() {
+	public double getEmpOvSelRt() {
 		return empOvSelRt;
 	}
-	public void setEmpOvSelRt(Double empOvSelRt) {
+	public void setEmpOvSelRt(double empOvSelRt) {
 		this.empOvSelRt = empOvSelRt;
 	}
-	public Double getEmpAvRt() {
+	public double getEmpAvRt() {
 		return empAvRt;
 	}
-	public void setEmpAvRt(Double empAvRt) {
+	public void setEmpAvRt(double empAvRt) {
 		this.empAvRt = empAvRt;
 	}
 
