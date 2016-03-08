@@ -19,7 +19,7 @@
         <ul class="sidebar-nav">
             <li class="sidebar-brand"><a href="#"><b>Employee performance</b></a></li>
             <li><a href="Biodata.html">Home</a></li>
-            <li><a href="Competency_Development.html">Competency Development</a></li>
+            <li><a href="/Performeter/pages/ratings.jsp">See Your Ratings</a></li>
             <li><a href="Performance_goals_main.html">Performance Goals</a></li>
             <li><a href="Development_plans_main.html">Development Plans</a></li>
             <li><a href="Summary.html">Summary</a></li>

@@ -18,7 +18,9 @@ import javax.sql.DataSource;
 
 import performeter.beans.Employee;
 import performeter.beans.EmployeeLogin;
+import performeter.beans.Ratings;
 import performeter.dao.LoginDAO;
+import performeter.dao.RatingsDAO;
 
 /**
  * Servlet implementation class LoginController
@@ -70,13 +72,7 @@ public class LoginController extends HttpServlet {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		else if(action.equals("dologin")){
 			
-			Connection conn = null;
-			try {
-				conn = ds.getConnection();
-			} catch (SQLException e) {
-				e.printStackTrace();
-				throw new ServletException();
-			}
+			
 			String employeeId = request.getParameter("employeeId");
 			if(employeeId==null||employeeId==""){
 				employeeIdNo=0;
@@ -94,7 +90,7 @@ public class LoginController extends HttpServlet {
 			EmployeeLogin loginObj = new EmployeeLogin(employeeIdNo, employeePassword);
 			session.setAttribute("loginbean", loginObj);
 			
-			LoginDAO loginDAOObj = new LoginDAO(conn);
+			
 			try {
 				if(!loginObj.validate())
 					{
@@ -102,11 +98,18 @@ public class LoginController extends HttpServlet {
 						request.getRequestDispatcher("/index.jsp").forward(request, response);
 					}		
 					else{
+						Connection conn = null;
+						conn = ds.getConnection();
+						LoginDAO loginDAOObj = new LoginDAO(conn);
 						boolean checkCredentials = loginDAOObj.checkCredentials(loginObj);
 						if(checkCredentials){
 							Employee employeeBean = new Employee();
 							employeeBean = loginDAOObj.findEmployeeDetails(loginObj);
 							session.setAttribute("employeeBean", employeeBean);
+							RatingsDAO ratingsDAOObj = new RatingsDAO(conn);
+							Ratings ratingsBean = new Ratings();
+							ratingsBean = ratingsDAOObj.findRatings(loginObj);
+							session.setAttribute("ratingsBean", ratingsBean);
 							request.getRequestDispatcher("/pages/employeeBiodata.jsp").forward(request, response);
 						}
 							
@@ -115,11 +118,15 @@ public class LoginController extends HttpServlet {
 							request.getRequestDispatcher("/index.jsp").forward(request, response);
 						}	
 					}
-				} catch (SQLException e) {
-				request.getRequestDispatcher("/pages/error.jsp").forward(request, response);
-				e.printStackTrace();
-			}	
+				} 
+				catch (SQLException e) {
+					request.getRequestDispatcher("/pages/error.jsp").forward(request, response);
+					e.printStackTrace();
+				}
+				catch (Exception ex) {
+					request.getRequestDispatcher("/pages/error.jsp").forward(request, response);
+					ex.printStackTrace();
+				}
+			}
 		}
-	}
-
 }
