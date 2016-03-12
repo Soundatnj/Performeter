@@ -30,8 +30,8 @@ public class RatingsDAO {
 		ratingsBean.setLeadershipabself(rs.getInt("leadershipabself"));ratingsBean.setTeammgmtself(rs.getInt("teammgmtself"));
 		ratingsBean.setLeadershipabsup(rs.getInt("leadershipabsup"));ratingsBean.setTeammgmtsup(rs.getInt("teammgmtsup"));
 		ratingsBean.setTimemgmtself(rs.getInt("timemgmtself"));ratingsBean.setRatingsId(rs.getInt("ratingid"));
-		ratingsBean.setTimemgmtsup(rs.getInt("timemgmtsup"));
-		
+		ratingsBean.setTimemgmtsup(rs.getInt("timemgmtsup"));ratingsBean.setCustomercareself(rs.getInt("customercareself"));
+		ratingsBean.setCustomercaresup(rs.getInt("customercaresup"));
 		return ratingsBean;
 	}
 	

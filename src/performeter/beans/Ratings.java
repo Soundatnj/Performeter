@@ -13,6 +13,7 @@ public class Ratings {
 	private int commnself;
 	private int managingamgself;
 	private int computerskillsself;
+	private int customercareself;
 	private int personalmgmtsup;
 	private int teammgmtsup;
 	private int leadershipabsup;
@@ -22,6 +23,7 @@ public class Ratings {
 	private int commnsup;
 	private int managingamgsup;
 	private int computerskillssup;
+	private int customercaresup;
 	public int getRatingsId() {
 		return ratingsId;
 	}
@@ -141,6 +143,18 @@ public class Ratings {
 	}
 	public void setComputerskillssup(int computerskillssup) {
 		this.computerskillssup = computerskillssup;
+	}
+	public int getCustomercareself() {
+		return customercareself;
+	}
+	public void setCustomercareself(int customercareself) {
+		this.customercareself = customercareself;
+	}
+	public int getCustomercaresup() {
+		return customercaresup;
+	}
+	public void setCustomercaresup(int customercaresup) {
+		this.customercaresup = customercaresup;
 	}
 	
 	
