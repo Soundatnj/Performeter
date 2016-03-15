@@ -35,7 +35,8 @@
 		<div class="row">
 			<h2><u>Self Evaluation:-</u></h2>
     		<br><br>
-    		<form action="/Performeter/SelfRateController" method="post">
+    		<form action="/Performeter/RateSelfController" method="post">
+    		<input type="hidden" name="action" value="doRateSelf"/>
     		<table class="table table-bordered">
      			<thead>
      				<tr>
