@@ -16,8 +16,11 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import performeter.beans.Employee;
+import performeter.beans.EmployeeLogin;
 import performeter.beans.Ratings;
+import performeter.dao.LoginDAO;
 import performeter.dao.RateSelfDAO;
+import performeter.dao.RatingsDAO;
 
 /**
  * Servlet implementation class RateSelfController
@@ -86,6 +89,16 @@ public class RateSelfController extends HttpServlet {
 				ratingBean.setCustomercareself(custCareSelf);ratingBean.setEmployeeId(employeeId);
 				RateSelfDAO obj = new RateSelfDAO(conn);
 				obj.rateSelf(ratingBean);
+				EmployeeLogin loginObj = (EmployeeLogin)session.getAttribute("loginbean");
+				LoginDAO loginDAOObj = new LoginDAO(conn);
+				Employee employeeBean = new Employee();
+				employeeBean = loginDAOObj.findEmployeeDetails(loginObj);
+				session.setAttribute("employeeBean", employeeBean);
+				RatingsDAO ratingsDAOObj = new RatingsDAO(conn);
+				Ratings ratingsBean = new Ratings();
+				ratingsBean = ratingsDAOObj.findRatings(loginObj);
+				session.setAttribute("ratingsBean", ratingsBean);
+				request.getRequestDispatcher("/pages/ratingsSelf.jsp").forward(request,response);
 			}
 			catch(Exception ex){
 				request.getRequestDispatcher("/pages/error.jsp").forward(request, response);
