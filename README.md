@@ -1,16 +1,16 @@
-###In Progress
+### In Progress
 
 
-###Performeter
+### Performeter
 
 An employee performance management system that allows an employee to see his overall ratings(self as well as supervisor's).
 
-####Incremental Modules:
+#### Incremental Modules:
 
 1. An interface to rate self.
 2. An interface to track milestones set by supervisor.
 
-###The MIT License (MIT)
+### The MIT License (MIT)
 
 Copyright (c) 2016 Hemansu Kumar Tanty
 
